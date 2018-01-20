@@ -4,7 +4,6 @@ using DNS.Protocol.ResourceRecords;
 using DNS.Server;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -31,33 +30,38 @@ namespace PS4CoreHost.Server.Infrastructure.Background
 
     public class DnsHostedService : IHostedService, IDisposable
     {
-        private DnsServer server = new DnsServer(new PSNetRequestResolver());
+        private DnsServer _server;
+
+        public DnsHostedService()
+        {
+            _server = new DnsServer(new PSNetRequestResolver());
+        }
 
         public void Dispose()
         {
-            if (server != null)
+            if (_server != null)
             {
-                server.Dispose();
-                server = null;
+                _server.Dispose();
+                _server = null;
             }
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            server.Requested += Server_Requested;
-            server.Listening += () => Console.WriteLine("DNS Listening...");
+            _server.Requested += Server_Requested;
+            _server.Listening += () => Console.WriteLine("DNS Listening...");
 
-            await server.Listen();
+            await _server.Listen();
         }
 
         private void Server_Requested(IRequest request)
         {
-            Console.WriteLine($"DNS -> {request.Questions.First().Name}");
+            Console.WriteLine($"---> {request.Questions.First().Name}");
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            server.Dispose();
+            _server.Dispose();
             return Task.CompletedTask;
         }
     }
