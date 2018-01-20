@@ -45,9 +45,9 @@ namespace PS4CoreHost.Server
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "exploit_entry",
-                    template: "entry",
-                    defaults: new { controller = "Exploit", action = "Entry" });
+                    name: "exploits",
+                    template: "exploits/{action}/entry",
+                    defaults: new { controller = "Exploits" });
 
                 routes.MapRoute(
                     name: "default",

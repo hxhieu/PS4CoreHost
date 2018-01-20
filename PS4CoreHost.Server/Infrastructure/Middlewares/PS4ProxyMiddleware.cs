@@ -9,7 +9,7 @@ namespace PS4CoreHost.Server.Infrastructure.Middlewares
         public static IApplicationBuilder UsePS4Proxy(
             this IApplicationBuilder app)
         {
-            app.MapWhen(ctx => ctx.Request.IsUserManuals(), builder => RedirectHandler(builder, "/entry"));
+            app.MapWhen(ctx => ctx.Request.IsUserManuals(), builder => RedirectHandler(builder, "/exploits"));
             return app;
         }
 

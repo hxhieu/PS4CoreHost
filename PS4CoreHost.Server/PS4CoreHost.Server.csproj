@@ -26,4 +26,8 @@
     <ProjectReference Include="..\PS4CoreHost.Utils\PS4CoreHost.Utils.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
 </Project>
