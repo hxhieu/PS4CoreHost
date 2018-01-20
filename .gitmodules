@@ -1,0 +1,6 @@
+[submodule "PS4CoreHost.Server/Scripts/exploits/specter"]
+	path = PS4CoreHost.Server/Scripts/exploits/specter
+	url = https://github.com/Cryptogenic/PS4-4.05-Kernel-Exploit.git
+[submodule "PS4CoreHost.Server/Scripts/exploits/idc"]
+	path = PS4CoreHost.Server/Scripts/exploits/idc
+	url = https://github.com/idc/ps4-entrypoint-405.git
