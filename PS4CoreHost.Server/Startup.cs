@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PS4CoreHost.Server.Infrastructure.Background;
 using PS4CoreHost.Server.Infrastructure.Middlewares;
+using PS4CoreHost.Utils;
 
 namespace PS4CoreHost.Server
 {
@@ -23,6 +24,8 @@ namespace PS4CoreHost.Server
             services.AddMvc();
 
             services.AddSingleton<IHostedService, DnsHostedService>();
+
+            services.AddTransient<IPayloadSender, PS4PayloadSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
