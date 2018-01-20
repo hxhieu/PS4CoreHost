@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Scripts\**" />
+    <Content Remove="Scripts\**" />
+    <EmbeddedResource Remove="Scripts\**" />
+    <None Remove="Scripts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="2.6.362" />
     <PackageReference Include="DNS" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
@@ -17,10 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PS4CoreHost.Utils\PS4CoreHost.Utils.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Scripts\exploits\" />
   </ItemGroup>
 
 </Project>
